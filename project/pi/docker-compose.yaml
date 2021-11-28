@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  pi:
+    build: .
+    image: pi:latest
+    container_name: pi
+    ports:
+      - "5000:5000"
+    restart: unless-stopped

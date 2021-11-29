@@ -7,6 +7,7 @@ services:
     container_name: pi
     volumes:
       - /proc:/host-proc
+      - /opt/vc/bin/vcgencmd:/opt/vc/bin/vcgencmd
     ports:
       - "5000:5000"
     restart: unless-stopped

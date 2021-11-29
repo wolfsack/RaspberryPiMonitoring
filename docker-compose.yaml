@@ -8,7 +8,7 @@ services:
     environment:
       - PROCFS_PATH="/rootfs/proc"
     volumes:
-      - /:/rootfs:ro
+      - /:/rootfs
     ports:
       - "5000:5000"
     restart: unless-stopped

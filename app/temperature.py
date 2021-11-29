@@ -1,6 +1,6 @@
 import os
 
-TEMPERATURE_FILE = os.environ['ROOT_FS'] + "/sys/class/hwmon/hwmon0"
+TEMPERATURE_FILE = os.environ['ROOT_FS'] + "/sys/class/hwmon/hwmon0/temp1_input"
 
 
 def get_temp() -> float :

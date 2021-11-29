@@ -12,6 +12,8 @@ COPY /app /wrk/app
 
 COPY wsgi.py wsgi.py
 
+ENV ROOT_FS "/rootfs"
+
 EXPOSE 5000
 
 ENTRYPOINT [ "waitress-serve" ]

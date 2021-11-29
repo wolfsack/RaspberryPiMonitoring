@@ -1,0 +1,4 @@
+    Flask==2.0.2 # Framework for creating HTTP server applications
+    psutil==5.8.0 # Package to collect system data
+    vcgencmd==0.1.1 # Package for Raspberry Pi only to measure CPU Temperatur
+    waitress==2.0.0 # WSGI Server to run the Flask app

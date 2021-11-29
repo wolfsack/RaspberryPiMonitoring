@@ -2,16 +2,18 @@ FROM python:3.9
 
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /app
+WORKDIR /wrk
 
 COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
-COPY /app .
+COPY /app /wrk/app
+
+COPY wsgi.py wsgi.py
 
 EXPOSE 5000
 
-ENTRYPOINT ["python"]
+ENTRYPOINT [ "waitress-serve" ]
 
-CMD ["app.py"]
+CMD ["--listen=*:5000", "wsgi:app"]

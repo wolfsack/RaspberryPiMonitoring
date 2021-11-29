@@ -6,16 +6,26 @@ import psutil
 from app.metric import Metric
 
 
+# get data and create list of Metrics
 def metrics(node: int):
+    # get CPU
     cpu = psutil.cpu_percent()
+    # get number of cpu cores
     cores = psutil.cpu_count()
+    # get number of physical cpu cores
     cores_physical = psutil.cpu_count(logical=False)
+    # get memory data
     memory = psutil.virtual_memory()
+    # get boot time of host system
     boot_time = psutil.boot_time()
+    # get system time
     system_time = time.time()
+    # get number of tcp connections
     tcp_connections = len(psutil.net_connections(kind='tcp'))
+    # get disk partitions
     partitions = psutil.disk_partitions()
 
+    # create list of Metrics
     metrics_list = [Metric(
         metric_name="cpu_usage",
         metric_type="gauge",
@@ -107,7 +117,9 @@ def metrics(node: int):
     # raspberry pi exclusive
     if platform.system() == "Linux":
         from vcgencmd import Vcgencmd
+        # get cpu temperature
         temp = Vcgencmd().measure_temp()
+        # add to metrics list
         metrics_list.append(
             Metric(
                 metric_name="cpu_temperature",
@@ -118,7 +130,7 @@ def metrics(node: int):
                     "node": f"{node}"
                 }
             ))
-
+    # iterate over partitions and add important data to Metrics list
     for partition in partitions:
         disk = psutil.disk_usage(partition[1])
         metrics_list.append(
@@ -159,12 +171,14 @@ def metrics(node: int):
                 }
             ))
 
+    # return list of Metrics
     return metrics_list
 
-
+# generates formatted string of metrics
 def generate_metrics(node: int):
     output = ""
 
+    # get list of Metrics and concatenates them to a single string
     for metric in metrics(node):
         output += metric.to_string() + "\n" + "\n"
 

@@ -1,4 +1,0 @@
-Flask==2.0.2
-psutil==5.8.0
-vcgencmd==0.1.1
-waitress==2.0.0

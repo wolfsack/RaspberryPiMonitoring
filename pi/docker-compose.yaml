@@ -5,6 +5,8 @@ services:
     build: .
     image: pi:latest
     container_name: pi
+    volumes:
+      - /proc:/host-proc
     ports:
       - "5000:5000"
     restart: unless-stopped

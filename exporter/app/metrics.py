@@ -6,6 +6,7 @@ import psutil
 
 # psutil.PROCFS_PATH = os.environ['ROOT_FS'] + "/proc" /rootfs
 psutil.PROCFS_PATH = "/rootfs" + "/proc"
+print(os.environ)
 #psutil.PROCFS_PATH = '/rootfs/proc'
 from app.metric import Metric
 

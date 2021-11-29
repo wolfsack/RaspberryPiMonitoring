@@ -6,7 +6,7 @@ services:
     image: pi:latest
     container_name: pi
     environment:
-      - ROOT_FS =/rootfs
+      - ROOT_FS=/rootfs
     volumes:
       - /:/rootfs
     ports:

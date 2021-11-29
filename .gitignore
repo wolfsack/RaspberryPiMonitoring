@@ -1,0 +1,4 @@
+/venv
+/.idea
+/prom
+/app/__pycache__

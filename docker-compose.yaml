@@ -30,6 +30,7 @@ services:
   graphana:
     image: grafana/grafana:8.2.1
     container_name: graphana
+    user: '472'
     ports:
       - "3000:3000"
     environment:

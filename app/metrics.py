@@ -102,21 +102,23 @@ def metrics(node: int):
     ]
 
     # raspberry pi exclusive
-    if platform.system() == "Linux":
-        from vcgencmd import Vcgencmd
+    #if platform.system() == "Linux":
+        #from vcgencmd import Vcgencmd
 
         # get cpu temperature
-        temp = Vcgencmd().measure_temp()
+        #temp = Vcgencmd().measure_temp()
         # add to metrics list
-        metrics_list.append(
-            Metric(
-                metric_name="cpu_temperature",
-                metric_type="gauge",
-                comment="CPU Temperature",
-                value=temp,
-                params={"node": f"{node}"},
-            )
-        )
+        #metrics_list.append(
+            #Metric(
+                #metric_name="cpu_temperature",
+                #metric_type="gauge",
+                #comment="CPU Temperature",
+                #value=temp,
+                #params={"node": f"{node}"},
+            #)
+        #)
+    
+    
     # iterate over partitions and add important data to Metrics list
     for partition in partitions:
         disk = psutil.disk_usage(partition[1])

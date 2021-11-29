@@ -38,7 +38,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 5,
+                "h": 7,
                 "w": 5,
                 "x": 0,
                 "y": 0
@@ -122,7 +122,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 5,
+                "h": 7,
                 "w": 4,
                 "x": 5,
                 "y": 0
@@ -372,7 +372,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 5,
+                "h": 7,
                 "w": 3,
                 "x": 17,
                 "y": 0
@@ -439,7 +439,7 @@
         {
             "datasource": null,
             "gridPos": {
-                "h": 5,
+                "h": 7,
                 "w": 4,
                 "x": 20,
                 "y": 0
@@ -492,7 +492,7 @@
             "cacheTimeout": null,
             "datasource": "Prometheus",
             "gridPos": {
-                "h": 3,
+                "h": 5,
                 "w": 4,
                 "x": 9,
                 "y": 2
@@ -545,7 +545,7 @@
         {
             "datasource": null,
             "gridPos": {
-                "h": 3,
+                "h": 5,
                 "w": 4,
                 "x": 13,
                 "y": 2
@@ -600,10 +600,10 @@
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
-                "h": 6,
+                "h": 9,
                 "w": 9,
                 "x": 0,
-                "y": 5
+                "y": 7
             },
             "hiddenSeries": false,
             "id": 2,
@@ -690,10 +690,10 @@
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
-                "h": 6,
+                "h": 9,
                 "w": 9,
                 "x": 9,
-                "y": 5
+                "y": 7
             },
             "hiddenSeries": false,
             "id": 20,
@@ -794,7 +794,7 @@
         ]
     },
     "timezone": "",
-    "title": "Raspberry",
+    "title": "Raspberry-1",
     "uid": "6dKotEpnk",
-    "version": 65
+    "version": 67
 }

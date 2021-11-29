@@ -4,8 +4,8 @@ import time
 
 import psutil
 
-psutil.PROCFS_PATH = os.environ['PROCFS_PATH']
-
+#psutil.PROCFS_PATH = os.environ['PROCFS_PATH']
+psutil.PROCFS_PATH = '/rootfs/proc'
 from app.metric import Metric
 
 

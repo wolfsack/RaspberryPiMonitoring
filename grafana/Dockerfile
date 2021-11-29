@@ -1,4 +1,4 @@
-FROM grafana/grafana:6.5.0
+FROM grafana/grafana:8.2.1
 
 ENV GF_USERS_ALLOW_SIGN_UP=true
 

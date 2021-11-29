@@ -29,7 +29,7 @@ services:
 
   graphana:
     build: ./exporter/.
-    image: pi-grafana:latest
+    image: grafana-pi:latest
     container_name: graphana
     user: '472'
     ports:

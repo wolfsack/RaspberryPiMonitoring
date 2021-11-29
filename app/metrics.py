@@ -1,9 +1,10 @@
 import platform
+import os
 import time
 
 import psutil
 
-psutil.PROCFS_PATH = "/host-proc"
+psutil.PROCFS_PATH = os.environ['PROCFS_PATH']
 
 from app.metric import Metric
 

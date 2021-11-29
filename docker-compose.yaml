@@ -12,3 +12,34 @@ services:
     ports:
       - "5000:5000"
     restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.30.3
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/prom:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    restart: unless-stopped
+    depends_on:
+      - pi
+
+  graphana:
+    build: ./exporter/.
+    image: grafana-pi:latest
+    container_name: graphana
+    user: '472'
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin_pass
+    volumes:
+      - ./grafana/grafana-storage:/var/lib/grafana
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+      - pi

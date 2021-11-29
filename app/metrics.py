@@ -4,8 +4,8 @@ import time
 
 import psutil
 
-#psutil.PROCFS_PATH = os.environ['PROCFS_PATH']
-psutil.PROCFS_PATH = '/rootfs/proc'
+psutil.PROCFS_PATH = os.environ['ROOT_FS'] + "/proc"
+#psutil.PROCFS_PATH = '/rootfs/proc'
 from app.metric import Metric
 
 
@@ -103,21 +103,21 @@ def metrics(node: int):
     ]
 
     # raspberry pi exclusive
-    #if platform.system() == "Linux":
-        #from vcgencmd import Vcgencmd
+    if platform.system() == "Linux":
+        from app.temperature import get_temp
 
         # get cpu temperature
-        #temp = Vcgencmd().measure_temp()
+        temp = get_temp()
         # add to metrics list
-        #metrics_list.append(
-            #Metric(
-                #metric_name="cpu_temperature",
-                #metric_type="gauge",
-                #comment="CPU Temperature",
-                #value=temp,
-                #params={"node": f"{node}"},
-            #)
-        #)
+        metrics_list.append(
+            Metric(
+                metric_name="cpu_temperature",
+                metric_type="gauge",
+                comment="CPU Temperature",
+                value=temp,
+                params={"node": f"{node}"},
+            )
+        )
     
     
     # iterate over partitions and add important data to Metrics list

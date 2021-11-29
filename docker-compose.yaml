@@ -2,7 +2,7 @@ version: "3"
 
 services:
   pi:
-    build: .
+    build: /exporter/.
     image: pi:latest
     container_name: pi
     environment:
@@ -19,8 +19,8 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./prom:/prometheus
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/prom:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     restart: unless-stopped
@@ -34,4 +34,6 @@ services:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin_pass
       - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - ./grafana/grafana-storage:/var/lib/grafana
     restart: unless-stopped

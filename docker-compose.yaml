@@ -28,7 +28,7 @@ services:
       - pi
 
   graphana:
-    build: ./exporter/.
+    build: ./grafana/.
     image: grafana-pi:latest
     container_name: graphana
     user: '472'

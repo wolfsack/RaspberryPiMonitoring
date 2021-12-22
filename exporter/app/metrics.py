@@ -1,3 +1,4 @@
+from app.metric import Metric
 import platform
 import os
 import time
@@ -7,7 +8,6 @@ import psutil
 psutil.PROCFS_PATH = os.environ['ROOT_FS'] + "/proc"
 #psutil.PROCFS_PATH = "/rootfs" + "/proc"
 #psutil.PROCFS_PATH = '/rootfs/proc'
-from app.metric import Metric
 
 
 # get data and create list of Metrics
@@ -119,8 +119,7 @@ def metrics(node: int):
                 params={"node": f"{node}"},
             )
         )
-    
-    
+
     # iterate over partitions and add important data to Metrics list
     for partition in partitions:
         disk = psutil.disk_usage(partition[1])
@@ -130,7 +129,8 @@ def metrics(node: int):
                 metric_type="gauge",
                 comment="Disk Usage Data",
                 value=disk[0],
-                params={"mount": partition[1], "type": "total", "node": f"{node}"},
+                params={"mount": partition[1],
+                        "type": "total", "node": f"{node}"},
             )
         )
         metrics_list.append(
@@ -139,7 +139,8 @@ def metrics(node: int):
                 metric_type="gauge",
                 comment="Disk Usage Data",
                 value=disk[1],
-                params={"mount": partition[1], "type": "used", "node": f"{node}"},
+                params={"mount": partition[1],
+                        "type": "used", "node": f"{node}"},
             )
         )
 
@@ -149,7 +150,8 @@ def metrics(node: int):
                 metric_type="gauge",
                 comment="Disk Usage Data",
                 value=disk[2],
-                params={"mount": partition[1], "type": "free", "node": f"{node}"},
+                params={"mount": partition[1],
+                        "type": "free", "node": f"{node}"},
             )
         )
 

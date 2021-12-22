@@ -9,7 +9,7 @@ app = Flask(__name__)
 # define HTTP endpoint
 @app.route('/node/<path:node>/metrics')
 def metrics(node):
-    # create response with a body containing metrics as string  and status-code 200
+    # create response with a body containing metrics as string and status-code 200
     response = make_response(generate_metrics(node), 200)
 
     # set response type to text/plain

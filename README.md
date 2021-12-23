@@ -119,7 +119,7 @@ Der scrape_interval legt fest in welchem Interval an dem Ziel Daten gesammelt we
 
 Und unter static_config > targets wird der host und port festgelegt unter dem das Ziel zu finden ist. Das kann eine Domain, aber auch eine IP-Addresse sein. 
 
-Achtung mit Localhost. Da sich Prometheus in einem DockerContainer befindet funktionier Localhost nicht, auch wenn der Flask DockerContainer auf der gleichen Maschine läuft. Dafür kann hier aber auch Docker DNS genutzt werden.
+Tipp: Hier kann auch Docker DNS genutzt werden.
 
 ----
 ## Graphana
